@@ -3,11 +3,14 @@
 
 app.controllerFactory = function(model, view) {
     function Controller() {
-        model.on(function(event, data) {
-            if(event === 'timeOver')
-                view.render(data);
-            else if(event === 'buttonClicked')
-                model.doSomething(data);
+        model.on(function(e) {
+            if(e.type === app.EventType.TIME_OVER)
+                view.render(e.data);
+        });
+
+        view.on(function(e) {
+            if(e.type === app.EventType.BUTTON_CLICK)
+                model.doSomething(e.data);
         });
     }
 

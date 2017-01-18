@@ -3,12 +3,13 @@
 var sea = function() {
     function Observable() {
         this.callback = null;
+
         this.on = (callback) => {
             this.callback = callback;
         };
 
-        this.trigger = (event, data) => {
-            this.callback(event, data);
+        this.trigger = (e) => {
+            this.callback(e);
         }
     }
 
@@ -56,9 +57,20 @@ var sea = function() {
         this.view  = view;
     }
 
+    /**
+     * @param {String} type
+     * @param {*} data
+     * @constructor
+     */
+    function Event(type, data) {
+        this.type = type;
+        this.data = data;
+    }
+
     return {
         Model: Model,
         View: View,
-        Controller: Controller
+        Controller: Controller,
+        Event: Event
     }
 }();

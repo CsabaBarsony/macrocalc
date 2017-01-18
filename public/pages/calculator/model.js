@@ -8,9 +8,9 @@ app.Model = function() {
 
     Model.prototype = new sea.Model();
 
-    Model.prototype.doSomething = (data) => {
+    Model.prototype.doSomething = function(data) {
         setTimeout(() => {
-            this.trigger('timeOver', 'majom from model' + data);
+            this.trigger(new sea.Event(app.EventType.TIME_OVER, 'model ' + data));
         }, 100);
     };
 
