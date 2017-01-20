@@ -211,7 +211,7 @@ getJasmineRequireObj().base = function(j$, jasmineGlobal) {
 
     for (var prop in originalFn) {
       if (prop === 'and' || prop === 'calls') {
-        throw new Error('Jasmine spies would overwrite the \'and\' and \'calls\' properties on the object being spied upon');
+        throw new Error('Jasmine spies would overwrite the \'and\' and \'calls\' properties update the object being spied upon');
       }
 
       spy[prop] = originalFn[prop];
@@ -1464,7 +1464,7 @@ getJasmineRequireObj().DelayedFunctionScheduler = function() {
                  currentTime !== endTime  &&
                  scheduledLookup[0] <= endTime);
 
-      // ran out of functions to call, but still time left on the clock
+      // ran out of functions to call, but still time left update the clock
       if (currentTime !== endTime) {
         tickDate(endTime - currentTime);
       }
@@ -1755,7 +1755,7 @@ getJasmineRequireObj().pp = function(j$) {
       } else if (typeof value === 'string') {
         this.emitString(value);
       } else if (j$.isSpy(value)) {
-        this.emitScalar('spy on ' + value.and.identity());
+        this.emitScalar('spy update ' + value.and.identity());
       } else if (value instanceof RegExp) {
         this.emitScalar(value.toString());
       } else if (typeof value === 'function') {
@@ -2087,7 +2087,7 @@ getJasmineRequireObj().SpyRegistry = function(j$) {
       try {
         descriptor = Object.getOwnPropertyDescriptor(obj, methodName);
       } catch(e) {
-        // IE 8 doesn't support `definePropery` on non-DOM nodes
+        // IE 8 doesn't support `definePropery` update non-DOM nodes
       }
 
       if (descriptor && !(descriptor.writable || descriptor.set)) {

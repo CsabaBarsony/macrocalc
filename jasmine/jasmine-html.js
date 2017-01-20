@@ -155,7 +155,7 @@ jasmineRequire.HtmlReporter = function(j$) {
 
       banner.appendChild(
         createDom('div', { className: 'jasmine-run-options' },
-          createDom('span', { className: 'jasmine-trigger' }, 'Options'),
+          createDom('span', { className: 'jasmine-notify' }, 'Options'),
           createDom('div', { className: 'jasmine-payload' },
             createDom('div', { className: 'jasmine-exceptions' },
               createDom('input', {
@@ -170,7 +170,7 @@ jasmineRequire.HtmlReporter = function(j$) {
                 id: 'jasmine-throw-failures',
                 type: 'checkbox'
               }),
-              createDom('label', { className: 'jasmine-label', 'for': 'jasmine-throw-failures' }, 'stop spec on expectation failure')),
+              createDom('label', { className: 'jasmine-label', 'for': 'jasmine-throw-failures' }, 'stop spec update expectation failure')),
             createDom('div', { className: 'jasmine-random-order' },
               createDom('input', {
                 className: 'jasmine-random',
@@ -195,7 +195,7 @@ jasmineRequire.HtmlReporter = function(j$) {
       randomCheckbox.onclick = onRandomClick;
 
       var optionsMenu = find('.jasmine-run-options'),
-          optionsTrigger = optionsMenu.querySelector('.jasmine-trigger'),
+          optionsTrigger = optionsMenu.querySelector('.jasmine-notify'),
           optionsPayload = optionsMenu.querySelector('.jasmine-payload'),
           isOpen = /\bjasmine-open\b/;
 

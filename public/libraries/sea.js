@@ -4,11 +4,12 @@ var sea = function() {
     function Observable() {
         this.callback = null;
 
-        this.on = (callback) => {
+        this.update = (callback) => {
             this.callback = callback;
         };
 
-        this.trigger = (e) => {
+        this.notify = (e) => {
+            if(!this.callback) throw new Error('No callback is set for Observable.');
             this.callback(e);
         }
     }

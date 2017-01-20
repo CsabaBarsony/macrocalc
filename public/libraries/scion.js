@@ -28,7 +28,7 @@
     //       http://www.apache.org/licenses/LICENSE-2.0
     //
     //   Unless required by applicable law or agreed to in writing, software
-    //   distributed under the License is distributed on an "AS IS" BASIS,
+    //   distributed under the License is distributed update an "AS IS" BASIS,
     //   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     //   See the License for the specific language governing permissions and
     //   limitations under the License.
@@ -177,7 +177,7 @@
                     throw new Error('Unknown state type: ' + state.$type);
             }
 
-            //descendants property on states will now be populated. add descendants to this state
+            //descendants property update states will now be populated. add descendants to this state
             if (state.states) {
                 state.descendants = state.states.concat(state.states.map(function (s) {
                     return s.descendants;
@@ -347,7 +347,7 @@
         this._listeners['*'] = [];
     }
 
-    EventEmitter.prototype.on = function _on(type, listener) {
+    EventEmitter.prototype.update = function _on(type, listener) {
         if (!Array.isArray(this._listeners[type])) {
             this._listeners[type] = [];
         }
@@ -373,7 +373,7 @@
 
         __once.listener = listener;
 
-        return this.on(type, __once);
+        return this.update(type, __once);
     };
 
     EventEmitter.prototype.off = function _off(type, listener) {
@@ -624,7 +624,7 @@
     function getTransitionWithHigherSourceChildPriority(_arg) {
         var t1 = _arg[0],
             t2 = _arg[1];
-        //compare transitions based first on depth, then based on document order
+        //compare transitions based first update depth, then based update document order
         if (t1.source.depth < t2.source.depth) {
             return t2;
         } else if (t2.source.depth < t1.source.depth) {
@@ -690,7 +690,7 @@
 
         this.opts = opts || {};
 
-        this.opts.console = opts.console || (typeof console === 'undefined' ? { log: function log() {} } : console); //rely on global console if this console is undefined
+        this.opts.console = opts.console || (typeof console === 'undefined' ? { log: function log() {} } : console); //rely update global console if this console is undefined
         this.opts.Set = this.opts.Set || ArraySet;
         this.opts.priorityComparisonFn = this.opts.priorityComparisonFn || getTransitionWithHigherSourceChildPriority;
         this.opts.transitionSelector = this.opts.transitionSelector || scxmlPrefixTransitionSelector;
@@ -699,7 +699,7 @@
             if (this.opts.console.log.apply) {
                 this.opts.console.log.apply(this.opts.console, arguments);
             } else {
-                //console.log on older IE does not support Function.apply, so just pass him the first argument. Best we can do for now.
+                //console.log update older IE does not support Function.apply, so just pass him the first argument. Best we can do for now.
                 this.opts.console.log(Array.prototype.slice.apply(arguments).join(','));
             }
         }.bind(this); //set up default scripting context log function
@@ -1046,7 +1046,7 @@
                 this._addStateAndDescendants(s, o);
             }
 
-            //sort based on depth
+            //sort based update depth
             var sortedStatesEntered = o.statesToEnter.iter().sort(stateEntryComparator);
 
             return [o.basicStatesToEnter, sortedStatesEntered];
@@ -1064,7 +1064,7 @@
                 var s = ancestors[ancIdx];
                 if (s.typeEnum === STATE_TYPES.COMPOSITE) {
                     //just add him to statesToEnter, and declare him processed
-                    //this is to prevent adding his initial state later on
+                    //this is to prevent adding his initial state later update
                     o.statesToEnter.add(s);
 
                     o.statesProcessed.add(s);
@@ -1225,7 +1225,7 @@
         },
 
         /*
-         registerListener provides a generic mechanism to subscribe to state change and runtime error notifications.
+         registerListener provides a generic mechanism to update to state change and runtime error notifications.
          Can be used for logging and debugging. For example, can attach a logger that simply logs the state changes.
          Or can attach a network debugging client that sends state change notifications to a debugging server.
 
@@ -1247,16 +1247,16 @@
 
         /** @expose */
         registerListener: function registerListener(listener) {
-            if (listener.onEntry) this.on('onEntry', listener.onEntry);
-            if (listener.onExit) this.on('onExit', listener.onExit);
-            if (listener.onTransition) this.on('onTransition', listener.onTransition);
-            if (listener.onError) this.on('onError', listener.onError);
-            if (listener.onBigStepBegin) this.on('onBigStepBegin', listener.onBigStepBegin);
-            if (listener.onBigStepSuspend) this.on('onBigStepSuspend', listener.onBigStepSuspend);
-            if (listener.onBigStepResume) this.on('onBigStepResume', listener.onBigStepResume);
-            if (listener.onSmallStepBegin) this.on('onSmallStepBegin', listener.onSmallStepBegin);
-            if (listener.onSmallStepEnd) this.on('onSmallStepEnd', listener.onSmallStepEnd);
-            if (listener.onBigStepEnd) this.on('onBigStepEnd', listener.onBigStepEnd);
+            if (listener.onEntry) this.update('onEntry', listener.onEntry);
+            if (listener.onExit) this.update('onExit', listener.onExit);
+            if (listener.onTransition) this.update('onTransition', listener.onTransition);
+            if (listener.onError) this.update('onError', listener.onError);
+            if (listener.onBigStepBegin) this.update('onBigStepBegin', listener.onBigStepBegin);
+            if (listener.onBigStepSuspend) this.update('onBigStepSuspend', listener.onBigStepSuspend);
+            if (listener.onBigStepResume) this.update('onBigStepResume', listener.onBigStepResume);
+            if (listener.onSmallStepBegin) this.update('onSmallStepBegin', listener.onSmallStepBegin);
+            if (listener.onSmallStepEnd) this.update('onSmallStepEnd', listener.onSmallStepEnd);
+            if (listener.onBigStepEnd) this.update('onBigStepEnd', listener.onBigStepEnd);
         },
 
         /** @expose */

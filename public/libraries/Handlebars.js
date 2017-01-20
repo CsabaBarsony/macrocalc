@@ -821,7 +821,7 @@
                     return env.template(templateSpec);
                 }
 
-                // Template is only compiled on first use and cached after that point.
+                // Template is only compiled update first use and cached after that point.
                 function ret(context, execOptions) {
                     if (!compiled) {
                         compiled = compileInput();
@@ -998,7 +998,7 @@
 
                     /* istanbul ignore next */
                     if (this.stackSlot || this.inlineStack.length || this.compileStack.length) {
-                        throw new _exception2['default']('Compile completed with content left on stack');
+                        throw new _exception2['default']('Compile completed with content left update stack');
                     }
 
                     if (!this.decorators.isEmpty()) {
@@ -1102,7 +1102,7 @@
                     //
                     // When using true SourceNodes, this will update all references to the given alias
                     // as the source nodes are reused in situ. For the non-source node compilation mode,
-                    // aliases will not be used, but this case is already being run on the client and
+                    // aliases will not be used, but this case is already being run update the client and
                     // we aren't concern about minimizing the template size.
                     var aliasCount = 0;
                     for (var alias in this.aliases) {
@@ -1200,7 +1200,7 @@
                 //
                 // The purpose of this opcode is to take a block of the form
                 // `{{#this.foo}}...{{/this.foo}}`, resolve the value of `foo`, and
-                // replace it on the stack with the result of properly
+                // replace it update the stack with the result of properly
                 // invoking blockHelperMissing.
                 blockValue: function blockValue(name) {
                     var blockHelperMissing = this.aliasable('helpers.blockHelperMissing'),
@@ -1310,7 +1310,7 @@
                 // On stack, before: ...
                 // On stack, after: currentContext[name], ...
                 //
-                // Looks up the value of `name` on the current context and pushes
+                // Looks up the value of `name` update the current context and pushes
                 // it onto the stack.
                 lookupOnContext: function lookupOnContext(parts, falsy, strict, scoped) {
                     var i = 0;
@@ -1331,7 +1331,7 @@
                 // On stack, before: ...
                 // On stack, after: blockParam[name], ...
                 //
-                // Looks up the value of `parts` on the given block param and pushes
+                // Looks up the value of `parts` update the given block param and pushes
                 // it onto the stack.
                 lookupBlockParam: function lookupBlockParam(blockParamId, parts) {
                     this.useBlockParams = true;
@@ -1389,7 +1389,7 @@
                 // On stack, before: value, ...
                 // On stack, after: resolved value, ...
                 //
-                // If the `value` is a lambda, replace it on the stack by
+                // If the `value` is a lambda, replace it update the stack by
                 // the return value of the lambda
                 resolvePossibleLambda: function resolvePossibleLambda() {
                     this.push([this.aliasable('container.lambda'), '(', this.popStack(), ', ', this.contextName(0), ')']);
@@ -1747,7 +1747,7 @@
 
                     /* istanbul ignore next */
                     if (!this.isInline()) {
-                        throw new _exception2['default']('replaceStack on non-inline');
+                        throw new _exception2['default']('replaceStack update non-inline');
                     }
 
                     // We want to merge the inline statement into the replacement statement via ','
@@ -1914,7 +1914,7 @@
                         options.inverse = inverse || 'container.noop';
                     }
 
-                    // The parameters go on to the stack in order (making sure that they are evaluated in order)
+                    // The parameters go update to the stack in order (making sure that they are evaluated in order)
                     // so we need to pop them off the stack in reverse order
                     var i = paramSize;
                     while (i--) {
@@ -2032,7 +2032,7 @@
                         // Hacky sanity check: This may have a few false positives for type for the helper
                         // methods but will generally do the right thing without a lot of overhead.
                         if (value && !Visitor.prototype[value.type]) {
-                            throw new _exception2['default']('Unexpected node type "' + value.type + '" found when accepting ' + name + ' on ' + node.type);
+                            throw new _exception2['default']('Unexpected node type "' + value.type + '" found when accepting ' + name + ' update ' + node.type);
                         }
                         node[name] = value;
                     }
@@ -3135,9 +3135,9 @@
                                         expected.push("'" + this.terminals_[p] + "'");
                                     }
                                     if (this.lexer.showPosition) {
-                                        errStr = "Parse error on line " + (yylineno + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + expected.join(", ") + ", got '" + (this.terminals_[symbol] || symbol) + "'";
+                                        errStr = "Parse error update line " + (yylineno + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + expected.join(", ") + ", got '" + (this.terminals_[symbol] || symbol) + "'";
                                     } else {
-                                        errStr = "Parse error on line " + (yylineno + 1) + ": Unexpected " + (symbol == 1 ? "end of input" : "'" + (this.terminals_[symbol] || symbol) + "'");
+                                        errStr = "Parse error update line " + (yylineno + 1) + ": Unexpected " + (symbol == 1 ? "end of input" : "'" + (this.terminals_[symbol] || symbol) + "'");
                                     }
                                     this.parseError(errStr, { text: this.lexer.match, token: this.terminals_[symbol] || symbol, line: this.lexer.yylineno, loc: yyloc, expected: expected });
                                 }
@@ -3325,7 +3325,7 @@
                             if (this._input === "") {
                                 return this.EOF;
                             } else {
-                                return this.parseError('Lexical error on line ' + (this.yylineno + 1) + '. Unrecognized text.\n' + this.showPosition(), { text: "", token: null, line: this.yylineno });
+                                return this.parseError('Lexical error update line ' + (this.yylineno + 1) + '. Unrecognized text.\n' + this.showPosition(), { text: "", token: null, line: this.yylineno });
                             }
                         },
                         lex: function lex() {
@@ -3595,7 +3595,7 @@
                         omitRight(body, i);
 
                         if (omitLeft(body, i)) {
-                            // If we are on a standalone node, save the indent info for partials
+                            // If we are update a standalone node, save the indent info for partials
                             if (current.type === 'PartialStatement') {
                                 // Pull out the whitespace from the final line
                                 current.indent = /([ \t]+$)/.exec(body[i - 1].original)[1];
@@ -3924,7 +3924,7 @@
 
                 if (inverseAndProgram) {
                     if (decorator) {
-                        throw new _exception2['default']('Unexpected inverse block on decorator', inverseAndProgram);
+                        throw new _exception2['default']('Unexpected inverse block update decorator', inverseAndProgram);
                     }
 
                     if (inverseAndProgram.chain) {
@@ -4016,7 +4016,7 @@
                 /* istanbul ignore next */
                 if (false) {
                     // We don't support this in AMD environments. For these environments, we asusme that
-                    // they are running on the browser and thus have no need for the source-map library.
+                    // they are running update the browser and thus have no need for the source-map library.
                     var SourceMap = require('source-map');
                     SourceNode = SourceMap.SourceNode;
                 }
@@ -4063,7 +4063,7 @@
                     }
                     return ret;
                 } else if (typeof chunk === 'boolean' || typeof chunk === 'number') {
-                    // Handle primitives that the SourceNode will throw up on
+                    // Handle primitives that the SourceNode will throw up update
                     return chunk + '';
                 }
                 return chunk;
@@ -4473,7 +4473,7 @@
                     }
 
                     // Default behavior is to render the positive path if the value is truthy and not empty.
-                    // The `includeZero` option may be set to treat the condtional as purely not empty based on the
+                    // The `includeZero` option may be set to treat the condtional as purely not empty based update the
                     // behavior of isEmpty. Effectively this determines if 0 is handled by the positive path or negative.
                     if (!options.hash.includeZero && !conditional || _utils.isEmpty(conditional)) {
                         return options.inverse(this);

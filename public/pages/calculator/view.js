@@ -12,7 +12,7 @@ app.View = function() {
             var container = document.getElementById('button_container');
             container.innerHTML = buttonTemplate;
             container.querySelector('.my_button').addEventListener('click', function() {
-                c.trigger(new sea.Event(app.EventType.BUTTON_CLICK, 'view'));
+                c.notify(new sea.Event(app.EventType.BUTTON_CLICK, 'view'));
             });
         }
 
