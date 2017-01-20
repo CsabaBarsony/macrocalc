@@ -1,7 +1,7 @@
 'use strict';
-/* global app, sea */
+/* global page, sea */
 
-app.Model = function() {
+page.Model = function() {
     function Model(store) {
         this.store = store;
     }
@@ -10,7 +10,7 @@ app.Model = function() {
 
     Model.prototype.doSomething = function(data) {
         setTimeout(() => {
-            this.notify(new sea.Event(app.EventType.TIME_OVER, 'model ' + data));
+            this.notify(new sea.Event(page.EventType.TIME_OVER, 'model ' + data));
         }, 100);
     };
 

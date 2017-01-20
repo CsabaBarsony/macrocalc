@@ -1,7 +1,7 @@
 'use strict';
-/* global app */
+/* global page */
 
-app.Store = function() {
+page.Store = function() {
     /**
      * @constructor
      */
@@ -135,7 +135,7 @@ app.Store = function() {
         "jambalaya",
         "jelly / jam",
         "jerky",
-        "jalapeño",
+        "jalapeï¿½o",
         "kale",
         "kabobs",
         "ketchup",
@@ -173,15 +173,15 @@ app.Store = function() {
     ];
 
     var macrosList = [
-        new app.Macros(10, 20, 30),
-        new app.Macros(33, 22, 11),
-        new app.Macros(50, 10, 10)
+        new page.Macros(10, 20, 30),
+        new page.Macros(33, 22, 11),
+        new page.Macros(50, 10, 10)
     ];
 
     var macrosCounter = 0;
 
     var foods = foodNames.map(n => {
-        var food = new app.Food(n, macrosList[macrosCounter++]);
+        var food = new page.Food(n, macrosList[macrosCounter++]);
         if(macrosCounter === 3) macrosCounter = 0;
         return food;
     });

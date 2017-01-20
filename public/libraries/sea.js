@@ -42,7 +42,7 @@ var sea = function() {
             var name = c.dataset.seaComponent;
             var id = c.dataset.seaId;
             if(this.components[id]) throw new Error('Component with id ' + id + ' already existx');
-            this.components[id] = new app[name](id, params);
+            this.components[id] = new page[name](id, params);
         });
     }
 

@@ -1,15 +1,15 @@
 'use strict';
-/* global app, sea */
+/* global page, sea */
 
-app.controllerFactory = function(model, view) {
+page.controllerFactory = function(model, view) {
     function Controller() {
         model.update(function(e) {
-            if(e.type === app.EventType.TIME_OVER)
+            if(e.type === page.EventType.TIME_OVER)
                 view.render(e.data);
         });
 
         view.update(function(e) {
-            if(e.type === app.EventType.BUTTON_CLICK)
+            if(e.type === page.EventType.BUTTON_CLICK)
                 model.doSomething(e.data);
         });
     }

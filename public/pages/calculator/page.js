@@ -1,6 +1,6 @@
 'use strict';
 
-var app = function() {
+var page = function() {
     /**
      * @enum
      */
@@ -55,6 +55,7 @@ var app = function() {
     }
 
     return {
+        components: {},
         EventType:  EventType,
         Macros:     Macros,
         Food:       Food,
@@ -64,8 +65,8 @@ var app = function() {
 }();
 
 document.addEventListener('DOMContentLoaded', function() {
-    var store      = new app.Store();
-    var model      = new app.Model(store);
-    var view       = new app.View();
-    var controller = app.controllerFactory(model, view);
+    var store      = new page.Store();
+    var model      = new page.Model(store);
+    var view       = new page.View();
+    var controller = page.controllerFactory(model, view);
 });

@@ -1,7 +1,7 @@
 'use strict';
-/* global app */
+/* global page.components */
 
-(function() {
+(function(components) {
     /**
      * @param {String} id
      * @param {Object} params
@@ -19,5 +19,5 @@
         console.log('Show update', ingredients, this.params);
     };
 
-    app.Show = Show;
-}(app));
+    components.Show = Show;
+}(page.components));

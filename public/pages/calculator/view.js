@@ -1,7 +1,7 @@
 'use strict';
-/* global app, sea, Handlebars */
+/* global page, sea, Handlebars, bella */
 
-app.View = function() {
+page.View = function() {
     var buttonTemplate
     =   '<div>'
     +       '<button class="my_button">Click me!</button>'
@@ -12,7 +12,10 @@ app.View = function() {
             var container = document.getElementById('button_container');
             container.innerHTML = buttonTemplate;
             container.querySelector('.my_button').addEventListener('click', function() {
-                c.notify(new sea.Event(app.EventType.BUTTON_CLICK, 'view'));
+                //c.notify(new sea.Event(page.EventType.BUTTON_CLICK, 'view'));
+                bella.ajax.get('/', (status, data) => {
+                    console.log(data);
+                });
             });
         }
 
