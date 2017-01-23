@@ -1,5 +1,5 @@
 'use strict';
-/* global page.components */
+/* global page */
 
 (function(components) {
     /**
@@ -19,5 +19,5 @@
         console.log('Show update', ingredients, this.params);
     };
 
-    components.Show = Show;
+    page.Show = Show;
 }(page.components));

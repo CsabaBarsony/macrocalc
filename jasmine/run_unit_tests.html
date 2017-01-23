@@ -7,13 +7,21 @@
   <link rel="shortcut icon" type="image/png" href="jasmine_favicon.png">
   <link rel="stylesheet" href="jasmine.css">
 
-  <script src="jasmine.js"></script>
+  <script src="../jspm_packages/system.js"></script>
+  <script src="../config.js"></script>
+  <script>
+    System.import('public/pages/home/index_test.js');
+  </script>
+
+  <!--<script src="jasmine.js"></script>
   <script src="jasmine-html.js"></script>
-  <script src="boot.js"></script>
+  <script src="boot.js"></script>-->
 
   <!-- include source files here... -->
+  <script src="../public/pages/home/index.js"></script>
 
   <!-- include spec files here... -->
+  <script src="../public/pages/home/index_test.js"></script>
 
 </head>
 

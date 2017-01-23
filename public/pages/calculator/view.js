@@ -13,7 +13,7 @@ page.View = function() {
             container.innerHTML = buttonTemplate;
             container.querySelector('.my_button').addEventListener('click', function() {
                 //c.notify(new sea.Event(page.EventType.BUTTON_CLICK, 'view'));
-                bella.ajax.get('/', (status, data) => {
+                bella.ajax.get('/getallfoods', (status, data) => {
                     console.log(data);
                 });
             });

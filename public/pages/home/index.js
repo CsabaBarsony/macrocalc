@@ -1,3 +1,9 @@
 import utils from './utils.js';
 
-console.log(utils());
+function sayMyName() {
+    return utils();
+}
+
+export default function sayMyName() {
+
+};
